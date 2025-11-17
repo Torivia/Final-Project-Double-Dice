@@ -1,0 +1,8 @@
+How to play the game of Double Dice
+
+The player begins with $100.00. NOTE: DOUBLE variable "money" starts with with 100.00. add to while loops condition: while(
+The player is asked for a bet amount, NOTE: sout("How much would you like to bet (Enter 0 to quit)?") + while statement
+and then a pair of dice are rolled. NOTE: roll() will be a method inside of Die class.
+If the two values on the dice are the same (if the player rolled doubles), the player wins an amount equal to their bet amount.
+If the two values on the dice do not match, the player loses their bet amount.
+The game ends when either the player decides to end the game, or when the player runs out of money.

@@ -15,7 +15,7 @@ public class DoubleDice {
 
         // Main game loop: continues until player quits or runs out of money
         do {
-            System.out.println("You have $" + moneyValue);
+            System.out.println("\nYou have $" + moneyValue);
 
             // Validate betting amount: must be between 0 and current money
             do {
@@ -49,9 +49,10 @@ public class DoubleDice {
 
         // Display final result after exiting loop
         if ((Math.abs(moneyValue - 0) < 0.0001)) {
-            System.out.println("You ran out of money.");
+            System.out.println("\nYou ran out of money.\n" +
+                                "Better luck next time.");
         } else {
-            System.out.println("See you next time.");
+            System.out.println("\nSee you next time.");
         }
     }
 }

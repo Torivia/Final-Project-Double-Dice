@@ -4,8 +4,9 @@ import java.util.HashMap;
 import java.util.Random;
 
 /**
- * Simulates rolling a six-sided die with
+ * Die class. Simulates rolling a six-sided die with
  * string conversion support.
+ * @author Tori Vargas
  */
 public class Die {
     private HashMap<Integer, String>  dieNumToWord = new HashMap<>();
@@ -68,7 +69,7 @@ public class Die {
     }
 
     /**
-     * Populates HashMap dieNumToWord.
+     * Populates HashMap dieNumToWord. Each number is matched conveniently to it's word form
      */
     private void initializeMap() {
         dieNumToWord.put(1, "one");

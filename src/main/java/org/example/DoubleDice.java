@@ -4,7 +4,8 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
- * Contains the main game loop and betting logic for the Double Dice game.
+ * DoubleDice Game. Contains the main game loop and betting logic for the Double Dice game.
+ * @author Tori Vargas
  */
 public class DoubleDice {
     public static void main(String[] args) {
@@ -32,13 +33,13 @@ public class DoubleDice {
                         break;
                     }
                 }
-                catch (InputMismatchException excptn) {
+                catch (InputMismatchException excptn) { // Watching out for inputs that aren't numeric values
                     System.out.println("Invalid betting value. Please input a number");
                     input.next();
                 }
             }
 
-            if (!(Math.abs(bettingValue - 0) < 0.0001)) {
+            if (!(Math.abs(bettingValue - 0) < 0.0001)) { // Check if user wants to quit
                 // Roll both dice
                 dice1.roll();
                 dice2.roll();
@@ -54,10 +55,10 @@ public class DoubleDice {
                     moneyValue -= bettingValue;
                 }
             }
-        } while (!(Math.abs(bettingValue - 0) < 0.0001) && !(Math.abs(moneyValue - 0) < 0.0001));
+        } while (!(Math.abs(bettingValue - 0) < 0.0001) && !(Math.abs(moneyValue - 0) < 0.0001)); // Check if user wants to quit or is broke
 
         // Display final result after exiting loop
-        if ((Math.abs(moneyValue - 0) < 0.0001)) {
+        if ((Math.abs(moneyValue - 0) < 0.0001)) { // Check if user is broke
             System.out.println("\nYou ran out of money.\n" +
                                 "Better luck next time.");
         } else {

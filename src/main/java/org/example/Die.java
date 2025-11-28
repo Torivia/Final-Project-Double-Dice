@@ -12,12 +12,19 @@ public class Die {
     private int dieValue;
     private Random randomObj;
 
+    /**
+     * Default constructor initializing the die value to 0
+     * and populating the dieNumToWord HashMap.
+     */
     public Die() {
         this.dieValue = 0;
         this.randomObj = new Random();
         initializeMap();
     }
 
+    /**
+     * Returns the current die value.
+     */
     public int getDieValue() {
         return dieValue;
     }
@@ -35,6 +42,7 @@ public class Die {
     /**
      * Checks if both dieValues are equal.
      * @param die2 allows for dieValue comparison.
+     * @return true if both dice have the same value, false otherwise
      */
     public boolean equals(Die die2) {
         boolean isEqual;

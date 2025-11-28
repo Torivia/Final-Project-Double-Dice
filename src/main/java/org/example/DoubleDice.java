@@ -1,5 +1,6 @@
 package org.example;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
@@ -15,19 +16,27 @@ public class DoubleDice {
 
         // Main game loop: continues until player quits or runs out of money
         do {
-            System.out.println("\nYou have $" + moneyValue);
+            System.out.printf("\nYou have $%.2f\n", moneyValue);
 
             // Validate betting amount: must be between 0 and current money
-            do {
-                System.out.println("How much money would you like to bet? (Enter 0 to quit)");
-                bettingValue = input.nextDouble();
+            while (true) {
+                try {
+                    System.out.println("How much money would you like to bet? (Enter 0 to quit)");
+                    bettingValue = input.nextDouble();
 
-                if ((bettingValue < 0)) {
-                    System.out.println("You can't bet negative numbers.");
-                } else if (bettingValue > moneyValue){
-                    System.out.println("Insufficient funds.");
+                    if ((bettingValue < 0)) {
+                        System.out.println("You can't bet negative numbers.");
+                    } else if (bettingValue > moneyValue) {
+                        System.out.println("Insufficient funds.");
+                    } else {
+                        break;
+                    }
                 }
-            } while ((bettingValue < 0) || (bettingValue > moneyValue));
+                catch (InputMismatchException excptn) {
+                    System.out.println("Invalid betting value. Please input a number");
+                    input.next();
+                }
+            }
 
             if (!(Math.abs(bettingValue - 0) < 0.0001)) {
                 // Roll both dice

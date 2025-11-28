@@ -25,9 +25,6 @@ public class Die {
         this.randomObj = new Random();
     }
 
-    /**
-     * Accessor method
-     */
     public int getDieValue() {
         return dieValue;
     }
@@ -42,9 +39,22 @@ public class Die {
         dieValue = rolledValue;
     }
 
+    /**
+     * Sets dieValue to a number ranging from 1-6
+     */
     public boolean equals(Die die2) {
-        //roll method in here? :3
-        return false;
+        boolean isEqual;
+        int secondDieValue;
+
+        secondDieValue = die2.getDieValue();
+
+        if (dieValue == secondDieValue) {
+            isEqual = true;
+        } else {
+            isEqual = false;
+        }
+
+        return isEqual;
     }
 
     @Override

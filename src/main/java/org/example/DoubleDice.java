@@ -24,7 +24,7 @@ public class DoubleDice {
         } while ((bettingValue < 0) || (bettingValue > moneyValue)); //TODO maybe put this in a separate class :3? called "verifyBettingValue(input)" returns the new bettingValue? :3
 
         while (!(Math.abs(bettingValue - 0) < 0.0001) || !(Math.abs(moneyValue - 0) < 0.0001)) {
-            //TODO: run the roll() and equals() methods
+
             dice1.roll();
             dice2.roll();
 
@@ -32,5 +32,6 @@ public class DoubleDice {
 
             //TODO: outside of if/else, print result using toString and then ask for bettingVal input again
         }
+
     }
 }

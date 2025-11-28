@@ -16,24 +16,33 @@ public class Die {
     private int dieValue;
     private Random randomObj;
 
-    //dis will be the only constructor
+    /**
+     * Default constructor initializing Random Object
+     * sets dieValue field to 0.
+     */
     public Die() {
         this.dieValue = 0;
         this.randomObj = new Random();
     }
 
-    //TODO make getDicesRandomObject() here
-
-    //TODO make getDieValue() here
-    //will probably need it for the equals() method
-
-    public static int roll() {
-        //note: make a getDiceRandomObject and then do the command to roll a random number
-        // remember to do nextInt(1, 7) instead of (0, 6) like last time...
-        return 0;
+    /**
+     * Accessor method
+     */
+    public int getDieValue() {
+        return dieValue;
     }
 
-    public static boolean equals(Die die2) {
+    /**
+     * Sets dieValue to a number ranging from 1-6
+     */
+    public void roll() {
+        int rolledValue;
+        rolledValue = randomObj.nextInt(1, 7);
+
+        dieValue = rolledValue;
+    }
+
+    public boolean equals(Die die2) {
         //roll method in here? :3
         return false;
     }

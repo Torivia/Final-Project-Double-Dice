@@ -1,13 +1,11 @@
-//TODO: Contain main logic for playing the game.
-//TODO: Reference your Die Class and corresponding methods for die rolling.
-//TODO: May either have statements all in a main() method or split logic up in separate methods.
-
-//DoubleDice Class – Class that contains game looping and logic.
-
 package org.example;
-import java.util.InputMismatchException;
-import java.util.Scanner; //for input!
 
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
+/**
+ * Contains the main game loop and betting logic for the Double Dice game.
+ */
 public class DoubleDice {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
@@ -16,39 +14,44 @@ public class DoubleDice {
         double moneyValue = 100.00;
         double bettingValue = 0;
 
-        System.out.println("You have $" + moneyValue);
+        // Main game loop: continues until player quits or runs out of money
         do {
-            System.out.println("How much money would you like to bet?");
-            bettingValue = input.nextDouble();
-        } while ((bettingValue < 0) || (bettingValue > moneyValue));
+            System.out.println("You have $" + moneyValue);
 
-        while (!(Math.abs(bettingValue - 0) < 0.0001) && !(Math.abs(moneyValue - 0) < 0.0001)) {
-            System.out.printf("$%.2f\n", moneyValue );
-            dice1.roll();
-            dice2.roll();
+            do {
+                System.out.println("How much money would you like to bet? (Enter 0 to quit)");
+                bettingValue = input.nextDouble();
 
-            //TODO: if (die1.equals(die2)) then player wins and add bettingValue, else lose and take away bettingValue
-            if (dice1.equals(dice2)) {
-                System.out.println("dieValue1 = " + dice1.getDieValue());
-                System.out.println("dieValue2 = " + dice2.getDieValue());
-                System.out.println("won");
-                moneyValue += bettingValue;
-            } else {
-                System.out.println("dieValue1 = " + dice1.getDieValue());
-                System.out.println("dieValue2 = " + dice2.getDieValue());
-                System.out.println("lost");
-                moneyValue -= bettingValue;
+                if ((bettingValue < 0)) {
+                    System.out.println("You can't bet negative numbers.");
+                } else if (bettingValue > moneyValue){
+                    System.out.println("Insufficient funds.");
+                }
+            } while ((bettingValue < 0) || (bettingValue > moneyValue));
+
+            if (!(Math.abs(bettingValue - 0) < 0.0001)) {
+
+                dice1.roll();
+                dice2.roll();
+
+                //checks if the dice are same value
+                if (dice1.equals(dice2)) {
+                    System.out.println("You rolled a " + dice1 + " and a " + dice2);
+                    System.out.printf("You win $%.2f\n", bettingValue);
+                    moneyValue += bettingValue;
+                } else {
+                    System.out.println("You rolled a " + dice1 + " and a " + dice2);
+                    System.out.printf("You lose $%.2f\n", bettingValue);
+                    moneyValue -= bettingValue;
+                }
             }
-            //TODO: outside of if/else, print result using toString and then ask for bettingVal input again
-            bettingValue = input.nextDouble();
-        }
+        } while (!(Math.abs(bettingValue - 0) < 0.0001) && !(Math.abs(moneyValue - 0) < 0.0001));
+
         if ((Math.abs(moneyValue - 0) < 0.0001)) {
             System.out.println("out of money");
         } else {
             System.out.println("cya winner");
         }
-
-        System.out.println("end of game");
 
     }
 }

@@ -6,18 +6,40 @@
 //Die Class – Class that simulates a six-sided die.
 
 package org.example;
+import java.util.HashMap;
+import java.util.Random;
 
 public class Die {
+    //NOTE: think im gonna do a hashMap to make it easier for toString?
+    // think about doing a normal..boring...array instead :(
+    HashMap<Integer, String>  dieNumToWord = new HashMap<Integer, String>();
+    private int dieValue;
+    private Random randomObj;
+
+    //dis will be the only constructor
+    public Die() {
+        this.dieValue = 0;
+        this.randomObj = new Random();
+    }
+
+    //TODO make getDicesRandomObject() here
+
+    //TODO make getDieValue() here
+    //will probably need it for the equals() method
+
     public static int roll() {
+        //note: make a getDiceRandomObject and then do the command to roll a random number
+        // remember to do nextInt(1, 7) instead of (0, 6) like last time...
         return 0;
     }
 
     public static boolean equals(Die die2) {
+        //roll method in here? :3
         return false;
     }
 
     @Override
     public String toString() {
-        return super.toString();
+        return "this is the to-string method that will make it so that the dice roll--in string form-- will print out :3";
     }
 }

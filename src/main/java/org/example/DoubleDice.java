@@ -5,7 +5,6 @@
 //DoubleDice Class – Class that contains game looping and logic.
 
 package org.example;
-import java.sql.SQLOutput;
 import java.util.InputMismatchException;
 import java.util.Scanner; //for input!
 
@@ -17,9 +16,9 @@ public class DoubleDice {
         double moneyValue = 100.00;
         double bettingValue = 0;
 
-        System.out.println("Hello and welcome to the dice game!");
+        System.out.println("You have $" + moneyValue);
         do {
-            System.out.println("Input a value :D dont be sneaky and try to put a negative value >:("); //TODO: throw exception that handles negative inputs
+            System.out.println("How much money would you like to bet?");
             bettingValue = input.nextDouble();
         } while ((bettingValue < 0) || (bettingValue > moneyValue));
 

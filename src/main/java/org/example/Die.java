@@ -10,9 +10,7 @@ import java.util.HashMap;
 import java.util.Random;
 
 public class Die {
-    //NOTE: think im gonna do a hashMap to make it easier for toString?
-    // think about doing a normal..boring...array instead :(
-    HashMap<Integer, String>  dieNumToWord = new HashMap<Integer, String>();
+    HashMap<Integer, String>  dieNumToWord = new HashMap<>();
     private int dieValue;
     private Random randomObj;
 
@@ -23,6 +21,16 @@ public class Die {
     public Die() {
         this.dieValue = 0;
         this.randomObj = new Random();
+        initializeMap();
+    }
+
+    private void initializeMap() {
+        dieNumToWord.put(1, "one");
+        dieNumToWord.put(2, "two");
+        dieNumToWord.put(3, "three");
+        dieNumToWord.put(4, "four");
+        dieNumToWord.put(5, "five");
+        dieNumToWord.put(6, "six");
     }
 
     public int getDieValue() {
@@ -47,18 +55,17 @@ public class Die {
         int secondDieValue;
 
         secondDieValue = die2.getDieValue();
-
-        if (dieValue == secondDieValue) {
-            isEqual = true;
-        } else {
-            isEqual = false;
-        }
+        isEqual = (dieValue == secondDieValue);
 
         return isEqual;
     }
 
     @Override
     public String toString() {
-        return "this is the to-string method that will make it so that the dice roll--in string form-- will print out :3";
+        String numConverted;
+
+        numConverted = dieNumToWord.get(dieValue);
+
+        return numConverted;
     }
 }
